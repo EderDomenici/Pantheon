@@ -9,7 +9,7 @@ This document defines the capabilities, limitations, and operational protocol fo
 * **Reference Document:** [GLOBAL_RULES.md](../GLOBAL_RULES.md)
 
 ## 2. Capabilities (Pode)
-* Read `SPEC.md`, `PLAN.md` (must be `APPROVED`), and `CONTRACT.md` (must be `SIGNED`).
+* Read `SPEC.md` and `PLAN.md` (must be `APPROVED`). Read `CONTRACT.md` if present (must be `SIGNED` if it exists).
 * Create or modify files specified in the active task list.
 * Run task verification commands as defined in the plan.
 * Commit changes to the Git repository upon successful verification.
@@ -23,7 +23,7 @@ This document defines the capabilities, limitations, and operational protocol fo
 * Cannot exceed the 3-retry limit (Circuit Breaker rule) on failures.
 
 ## 4. Operational Protocol
-1. **Prerequisite Check:** Ensure `PLAN.md` has status `APPROVED` and `CONTRACT.md` has status `SIGNED`.
+1. **Prerequisite Check:** Ensure `PLAN.md` has status `APPROVED`. If `CONTRACT.md` exists, ensure it has status `SIGNED`.
 2. **Sequential Execution:** Run tasks in order of dependency.
 3. **Verification & Circuit Breaker:**
    - Execute the verification command for the current task.

@@ -6,16 +6,16 @@
 * **Runtimes Target:** Claude Code, Codex
 
 ## 2. Pre-conditions
-* `PLAN.md` status must be `APPROVED`.
-* `CONTRACT.md` status must be `SIGNED`.
+* `PLAN.md` status must be `APPROVED` (confirmed by Athena's `AUDIT.md`).
+* Optional: `CONTRACT.md` status is `SIGNED` (if `/pantheon:sign` was executed).
 
 ## 3. Inputs
-* `phases/XX/PLAN.md`
-* `phases/XX/CONTRACT.md`
+* `phases/XX/PLAN.md` (required)
+* `phases/XX/CONTRACT.md` (optional)
 
 ## 4. Execution Sequence
 1. **Invocation:** The developer or agent triggers `/pantheon:execute`.
-2. **Precondition Validation:** Zeus checks plan and contract status.
+2. **Precondition Validation:** Zeus checks that `PLAN.md` is `APPROVED`. If `CONTRACT.md` exists, Zeus also checks that it is `SIGNED`.
 3. **Execution Loop:** Hephaestus executes tasks sequentially:
    - Implement or modify specified files.
    - Run task verification commands.
