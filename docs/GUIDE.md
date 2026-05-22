@@ -81,10 +81,12 @@ Zeus analisa o projeto existente e gera `.pantheon/SCAN.md` com três blocos:
 - **Mapa de entregáveis:** estrutura de diretórios, módulos identificados, padrão arquitetural.
 - **Diagnóstico de dívida técnica:** itens `[RISK]`, `[GAP]` e `[INCONSISTENCY]`.
 
-Cada item carrega `[FOUND]` (evidência direta) ou `[INFERRED]` (derivado de padrões). Revise com atenção os itens `[INFERRED]` antes de prosseguir.
+Cada item carrega `[FOUND]` (evidência direta) ou `[INFERRED]` (derivado de padrões).
+
+> ⚠️ **Atenção aos itens `[INFERRED]`:** eles são derivados por Zeus a partir de padrões observados no código, não de evidências diretas. Revise-os com cuidado antes de prosseguir — um `[INFERRED]` incorreto pode contaminar a `SPEC.md` inteira. Corrija no `SCAN.md` antes de rodar `/pantheon:discuss`.
 
 ### Passo 1 (adaptado): Especificação `/pantheon:discuss`
-Com `SCAN.md` presente, Zeus detecta automaticamente o contexto brownfield. Em vez de uma entrevista do zero, apresenta o que já foi mapeado e faz apenas as perguntas que o scan não conseguiu responder: objetivo da fase, regras de negócio específicas, princípios inegociáveis, fora de escopo.
+Com `SCAN.md` presente, Zeus detecta automaticamente o contexto brownfield. Antes de iniciar, Zeus perguntará se você já revisou e corrigiu o `SCAN.md` — responda `n` se ainda não fez isso. Se confirmado, em vez de uma entrevista do zero, apresenta o que já foi mapeado e faz apenas as perguntas que o scan não conseguiu responder: objetivo da fase, regras de negócio específicas, princípios inegociáveis, fora de escopo.
 
 O output continua sendo o mesmo `SPEC.md`. A partir daí, o ciclo é idêntico ao greenfield.
 

@@ -38,13 +38,13 @@ Zeus reads the following, in order:
 | Code samples | One representative file per identified module — sufficient for pattern inference only |
 
 ### Step 3 — Analysis and inference
-Zeus synthesizes the three blocks defined in `schemas/SCAN.template.md`:
+Zeus synthesizes the three blocks defined in `schemas/SCAN.template.md` and writes the output to **`.pantheon/SCAN.md`**:
 
 - **Block 1 (Technical Identity):** Extract runtime, package manager, dependencies, and quality gate commands.
 - **Block 2 (Deliverables Map):** Map directory structure with inferred purpose per module. Identify architectural patterns.
 - **Block 3 (Technical Debt Diagnosis):** Flag inconsistencies, gaps, and risks. Tag each as `[RISK]`, `[GAP]`, or `[INCONSISTENCY]`.
 
-**Labeling rule:** Every item in SCAN.md must carry either `[FOUND]` (direct evidence) or `[INFERRED]` (derived from patterns). Zeus must never omit this label.
+**Labeling rule:** Every item in `.pantheon/SCAN.md` must carry either `[FOUND]` (direct evidence) or `[INFERRED]` (derived from patterns). Zeus must never omit this label.
 
 ### Step 4 — Write and confirm
 1. Write `.pantheon/SCAN.md` following `schemas/SCAN.template.md`.

@@ -40,7 +40,7 @@ Before executing any command, Zeus MUST verify the required preconditions. If an
 | :--- | :--- |
 | `/pantheon:init` | Workspace must NOT already contain `.pantheon/config.json` (prevents re-init). |
 | `/pantheon:scan` | `.pantheon/config.json` must exist (workspace initialized). If `.pantheon/SCAN.md` already exists, developer must confirm overwrite. |
-| `/pantheon:discuss` | `.pantheon/config.json` must exist (init was completed). If `.pantheon/SCAN.md` exists, brownfield mode is activated automatically. |
+| `/pantheon:discuss` | `.pantheon/config.json` must exist (init was completed). **Two sub-modes:** if `.pantheon/SCAN.md` is absent → greenfield (full interview, see Section 4A of `commands/pantheon/discuss.md`); if `.pantheon/SCAN.md` is present → brownfield (SCAN.md review gate + targeted interview, see Section 4B of `commands/pantheon/discuss.md`). |
 | `/pantheon:plan` | `SPEC.md` must exist and not be empty. |
 | `/pantheon:audit` | `PLAN.md` must exist with status `PENDING_AUDIT`. |
 | `/pantheon:sign` | `PLAN.md` must have status `APPROVED`. `SPEC.md` must exist. |
@@ -64,7 +64,7 @@ Before executing any command, Zeus MUST verify the required preconditions. If an
 
 ### `/pantheon:discuss`
 1. Check if `.pantheon/SCAN.md` exists.
-   - **If yes (brownfield):** Load SCAN.md context, present auto-mapped summary, then conduct targeted interview covering only: phase objective, business rules, non-negotiable principles, out-of-scope boundaries, and corrections to `[INFERRED]` items. Do NOT re-ask about stack, dependencies, or sensor commands.
+   - **If yes (brownfield):** Ask developer to confirm SCAN.md has been reviewed. If confirmed, load SCAN.md context, present auto-mapped summary, then conduct targeted interview covering only: phase objective, business rules, non-negotiable principles, out-of-scope boundaries, and corrections to `[INFERRED]` items. Do NOT re-ask about stack, dependencies, or sensor commands.
    - **If no (greenfield):** Conduct full structured interview covering: goals, functional requirements, non-functional requirements, constraints, acceptance criteria.
 2. Generate `SPEC.md` from the interview (merging SCAN.md context in brownfield mode).
 3. Present the spec to the developer for confirmation before writing.
@@ -73,7 +73,7 @@ Before executing any command, Zeus MUST verify the required preconditions. If an
 ### `/pantheon:scan`
 1. Check preconditions: `.pantheon/config.json` must exist. If `SCAN.md` exists, ask developer to confirm overwrite.
 2. Collect evidence (read-only): dependency manifests, script definitions, config files, directory structure (3 levels), code samples (one file per module).
-3. Analyze and synthesize three blocks: Technical Identity, Deliverables Map, Technical Debt Diagnosis.
+3. Analyze and synthesize three blocks: Technical Identity, Deliverables Map, Technical Debt Diagnosis. Output goes to `.pantheon/SCAN.md`.
 4. Label every finding as `[FOUND]` (direct evidence) or `[INFERRED]` (derived) — never omit labels.
 5. Write `.pantheon/SCAN.md` following `schemas/SCAN.template.md`.
 6. Print summary: runtime detected, N modules mapped, N [RISK]/[GAP]/[INCONSISTENCY] signals.

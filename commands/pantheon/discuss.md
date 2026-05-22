@@ -33,7 +33,16 @@ Zeus checks if `.pantheon/SCAN.md` exists.
 ---
 
 ### 4B — Brownfield mode (SCAN.md present)
-1. **Context load:** Zeus reads `.pantheon/SCAN.md` and opens the session with a summary:
+1. **SCAN.md review gate:** Before loading context, Zeus asks the developer:
+
+   ```
+   SCAN.md found. Have you reviewed and corrected it before proceeding? (y/n)
+   ```
+
+   - If **no**: Zeus instructs the developer to open `.pantheon/SCAN.md`, review all `[INFERRED]` items for accuracy, correct any misidentified modules or stack details, and re-run `/pantheon:discuss` after validation. Zeus halts.
+   - If **yes**: proceed to step 2.
+
+2. **Context load:** Zeus reads `.pantheon/SCAN.md` and opens the session with a summary:
 
    ```
    SCAN.md found. Brownfield context loaded.
@@ -48,7 +57,7 @@ Zeus checks if `.pantheon/SCAN.md` exists.
    I'll confirm critical points and fill in what the scan couldn't answer.
    ```
 
-2. **Targeted interview:** Zeus asks **only** the questions the scan could not answer with confidence:
+3. **Targeted interview:** Zeus asks **only** the questions the scan could not answer with confidence:
    - Phase objective (what is being built or changed in this phase).
    - Specific business rules not derivable from code.
    - Non-negotiable principles (e.g., zero external dependencies, idempotency requirements).
@@ -57,8 +66,8 @@ Zeus checks if `.pantheon/SCAN.md` exists.
 
    Zeus does **not** re-ask about stack, dependencies, or sensor commands — these are already answered by SCAN.md.
 
-3. **Spec Drafting:** Zeus merges SCAN.md context with developer answers and writes `SPEC.md`.
-4. **Validation:** Zeus ensures all fields required by the spec template are populated.
+4. **Spec Drafting:** Zeus merges SCAN.md context with developer answers and writes `SPEC.md`.
+5. **Validation:** Zeus ensures all fields required by the spec template are populated.
 
 ## 5. Outputs
 * **`SPEC.md`**: The official, complete specification document for the phase.
