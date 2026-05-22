@@ -44,6 +44,12 @@ if (Test-Path $CodexDir) {
     $InstalledAny = $true
 }
 
+$HomeDir = [System.Environment]::GetFolderPath('UserProfile')
+New-Item -ItemType Directory -Force -Path "$HomeDir\.pantheon\scripts" | Out-Null
+if (Test-Path "scripts\*") {
+    Copy-Item -Path "scripts\*" -Destination "$HomeDir\.pantheon\scripts" -Recurse -Force
+}
+
 if (-not $InstalledAny) {
     Write-Warning "Neither Claude Code nor Codex directories were detected."
     Write-Host "Creating local config layout in user home for reference..."
@@ -87,6 +93,11 @@ Assert-File (Join-Path $CmdDir "pantheon\execute.md")   "/pantheon:execute"
 Assert-File (Join-Path $CmdDir "pantheon\verify.md")    "/pantheon:verify"
 Assert-File (Join-Path $CmdDir "pantheon\status.md")    "/pantheon:status"
 Assert-File (Join-Path $CmdDir "pantheon\resume.md")    "/pantheon:resume"
+Assert-File (Join-Path $CmdDir "pantheon\fast.md")      "/pantheon:fast"
+Assert-File (Join-Path $CmdDir "pantheon\jump.md")      "/pantheon:jump"
+Assert-File (Join-Path $CmdDir "pantheon\checkpoint.md") "/pantheon:checkpoint"
+Assert-File (Join-Path $CmdDir "pantheon\learn.md")     "/pantheon:learn"
+Assert-File (Join-Path $CmdDir "pantheon\metrics.md")   "/pantheon:metrics"
 Assert-File (Join-Path $CmdDir "spawn\zeus.md")         "/spawn:zeus"
 Assert-File (Join-Path $CmdDir "spawn\athena.md")       "/spawn:athena"
 Assert-File (Join-Path $CmdDir "spawn\hephaestus.md")   "/spawn:hephaestus"

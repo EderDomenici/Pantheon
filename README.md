@@ -43,6 +43,11 @@ Os agentes respondem a comandos específicos digitados no terminal da ferramenta
 *   `/pantheon:verify` - Roda sensores do Apolo e gera o veredito de Atena no `VERIFY-REPORT.md`.
 *   `/pantheon:status` - Mostra o progresso atual das tarefas.
 *   `/pantheon:resume` - Restaura o contexto e orienta onde o desenvolvimento parou.
+*   `/pantheon:fast` - Fluxo GSD dinâmico para pular burocracia em tarefas menores.
+*   `/pantheon:jump` - Pula ou retorna para uma fase/checkpoint específico.
+*   `/pantheon:checkpoint` - Salva manualmente o estado atual do framework.
+*   `/pantheon:learn` - Salva logs de erros, decisões e aciona a memória persistente do projeto (Metodologia Karpathy).
+*   `/pantheon:metrics` - Analisa retentativas, falhas e progresso, gerando relatório de métricas de uso e eficácia.
 
 ---
 

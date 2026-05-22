@@ -8,7 +8,7 @@ This document defines the identity, authority, state management protocols, and o
 - **Role:** State Manager, Progress Logger, and Context Restorer
 - **Purpose:** Be the single source of truth for execution state. Log every phase transition, compress history at phase completion, and guarantee that any developer or agent resuming work gets an accurate, actionable context snapshot.
 - **Reference Document:** [GLOBAL_RULES.md](../GLOBAL_RULES.md)
-- **Invoked by:** Zeus only (via `/pantheon:status` and `/pantheon:resume`). State updates are also triggered by Zeus after each phase transition.
+- **Invoked by:** Zeus only (via `/pantheon:status` and `/pantheon:resume`). State updates are also triggered by Zeus after each phase transition. Also invoked during `/pantheon:learn` and `/pantheon:checkpoint`.
 
 ---
 
@@ -18,6 +18,8 @@ This document defines the identity, authority, state management protocols, and o
 - Compress completed phase history into a dense summary at phase completion.
 - Restore context during `/pantheon:resume`: parse both files and produce an actionable snapshot for the developer.
 - Detect and report corrupted or missing state files (see Section 6).
+- Manage `.pantheon/memory/LESSONS.md` to persist long-term learnings (Karpathy methodology).
+- Manage framework state snapshots via `/pantheon:checkpoint` and `/pantheon:jump`.
 
 ---
 
