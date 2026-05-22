@@ -63,8 +63,10 @@ Before executing any command, Zeus MUST verify the required preconditions. If an
 5. Confirm to developer: "Workspace initialized. Run `/pantheon:discuss` to begin specification."
 
 ### `/pantheon:discuss`
-1. Conduct a structured interview covering: goals, functional requirements, non-functional requirements, constraints, acceptance criteria.
-2. Generate `SPEC.md` from the interview.
+1. Check if `.pantheon/SCAN.md` exists.
+   - **If yes (brownfield):** Load SCAN.md context, present auto-mapped summary, then conduct targeted interview covering only: phase objective, business rules, non-negotiable principles, out-of-scope boundaries, and corrections to `[INFERRED]` items. Do NOT re-ask about stack, dependencies, or sensor commands.
+   - **If no (greenfield):** Conduct full structured interview covering: goals, functional requirements, non-functional requirements, constraints, acceptance criteria.
+2. Generate `SPEC.md` from the interview (merging SCAN.md context in brownfield mode).
 3. Present the spec to the developer for confirmation before writing.
 4. Confirm: "SPEC.md created. Run `/pantheon:plan` to generate the execution plan."
 
