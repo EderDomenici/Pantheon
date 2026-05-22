@@ -1,0 +1,30 @@
+{
+  "name": "pantheon",
+  "version": "0.1.0",
+  "description": "A deterministic agentic development framework for specification, planning, execution, audit, and verification workflows in Codex.",
+  "author": {
+    "name": "Eder"
+  },
+  "license": "MIT",
+  "skills": "./skills/",
+  "keywords": [
+    "agentic-development",
+    "workflow",
+    "planning",
+    "verification"
+  ],
+  "interface": {
+    "displayName": "Pantheon",
+    "shortDescription": "Structured agentic development workflows for Codex.",
+    "longDescription": "Pantheon provides deterministic workflows for specification, planning, signing, execution, audit, checkpointing, resumption, and verification using specialized agent roles.",
+    "developerName": "Eder",
+    "category": "Productivity",
+    "capabilities": [
+      "skills",
+      "workflow",
+      "planning",
+      "verification"
+    ],
+    "defaultPrompt": "Use Pantheon to guide this development task through specification, planning, execution, audit, and verification."
+  }
+}

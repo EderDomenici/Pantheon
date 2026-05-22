@@ -1,3 +1,8 @@
+---
+name: apollo
+description: Run Pantheon sensor commands such as linters, tests, and typechecks, then produce structured verification reports.
+---
+
 # Skill: Apollo (Sensor Agent)
 
 This document defines the identity, authority, execution protocol, output filtering rules, and report format for Apollo, the Sensor Agent of the Pantheon framework.

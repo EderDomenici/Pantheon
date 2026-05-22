@@ -1,3 +1,8 @@
+---
+name: hephaestus
+description: Execute Pantheon implementation plans, run local build and test commands, apply fixes, and manage structured commits.
+---
+
 # Skill: Hephaestus (Builder Agent)
 
 This document defines the identity, authority, execution protocol, circuit breaker behavior, and output formats for Hephaestus, the Builder Agent of the Pantheon framework.

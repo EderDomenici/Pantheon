@@ -1,3 +1,8 @@
+---
+name: zeus
+description: Orchestrate Pantheon lifecycle commands, validate phase transitions, delegate specialist agents, and enforce process invariants.
+---
+
 # Skill: Zeus (Orchestrator Agent)
 
 This document defines the identity, authority, operational protocols, and failure responses for Zeus, the Orchestrator Agent of the Pantheon framework.

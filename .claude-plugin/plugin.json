@@ -1,0 +1,8 @@
+{
+  "name": "pantheon",
+  "description": "A deterministic agentic development framework for specification, planning, execution, audit, and verification workflows in Claude Code.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Eder"
+  }
+}

@@ -24,7 +24,7 @@ This document establishes the global rules, permissions, security controls, and 
 3. **No Inline Prompts:** All instructions, specifications, and workflows must be retrieved from written Markdown files (`.md`).
 4. **Command Execution Restriction:** Only Hephaestus and Apollo are permitted to run commands on the host machine, and only those explicitly specified in the approved plans or configuration files.
 5. **No File Modification Outside Scope:** Hephaestus must never edit or create files that are not listed in the approved `PLAN.md` without registering an explicit plan deviation.
-6. **No Permissive Licensing:** The framework is local/private by default. No license file should be added unless explicitly required.
+6. **Open Source License:** The framework is distributed under the MIT License. Preserve the `LICENSE` file and avoid adding third-party code with incompatible license terms.
 
 ---
 

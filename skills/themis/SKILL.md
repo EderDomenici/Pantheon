@@ -1,3 +1,8 @@
+---
+name: themis
+description: Validate that Pantheon plans exactly match the agreed specification and produce formal contract signatures.
+---
+
 # Skill: Themis (Contract Signer Agent)
 
 This document defines the identity, authority, validation protocol, and output formats for Themis, the Contract Signer Agent of the Pantheon framework.

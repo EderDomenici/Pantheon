@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "pantheon-marketplace",
+  "description": "Pantheon agentic development workflow plugins for Claude Code.",
+  "version": "0.1.0",
+  "owner": {
+    "name": "Eder"
+  },
+  "plugins": [
+    {
+      "name": "pantheon",
+      "description": "A deterministic agentic development framework for specification, planning, execution, audit, and verification workflows in Claude Code.",
+      "author": {
+        "name": "Eder"
+      },
+      "category": "development",
+      "source": "./"
+    }
+  ]
+}
