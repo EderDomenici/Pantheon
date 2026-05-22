@@ -63,6 +63,33 @@ Apolo executa os sensores globais definidos no `config.json` e monta o relatóri
 
 ---
 
+## 🏗️ 3. Projetos Brownfield (Já Iniciados)
+
+Se o projeto já existe e você quer entrar no ciclo spec-driven a partir do estado atual, use o fluxo brownfield:
+
+```mermaid
+graph TD
+    A[scan] -->|Cria SCAN.md| B[Revisão do dev]
+    B -->|Dev revisa e corrige| C[discuss — modo brownfield]
+    C -->|Cria SPEC.md| D[plan]
+    D --> E[ciclo normal...]
+```
+
+### Passo 0: Scan `/pantheon:scan`
+Zeus analisa o projeto existente e gera `.pantheon/SCAN.md` com três blocos:
+- **Identidade técnica:** stack, dependências, comandos de qualidade.
+- **Mapa de entregáveis:** estrutura de diretórios, módulos identificados, padrão arquitetural.
+- **Diagnóstico de dívida técnica:** itens `[RISK]`, `[GAP]` e `[INCONSISTENCY]`.
+
+Cada item carrega `[FOUND]` (evidência direta) ou `[INFERRED]` (derivado de padrões). Revise com atenção os itens `[INFERRED]` antes de prosseguir.
+
+### Passo 1 (adaptado): Especificação `/pantheon:discuss`
+Com `SCAN.md` presente, Zeus detecta automaticamente o contexto brownfield. Em vez de uma entrevista do zero, apresenta o que já foi mapeado e faz apenas as perguntas que o scan não conseguiu responder: objetivo da fase, regras de negócio específicas, princípios inegociáveis, fora de escopo.
+
+O output continua sendo o mesmo `SPEC.md`. A partir daí, o ciclo é idêntico ao greenfield.
+
+---
+
 ## ❓ FAQ (Perguntas Frequentes)
 
 ### O que fazer se a verificação de uma tarefa falhar consecutivamente?
