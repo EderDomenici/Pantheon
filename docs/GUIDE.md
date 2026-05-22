@@ -70,3 +70,10 @@ Se falhar 3 vezes consecutivas, Hefesto cancelará a execução atual, fará o r
 
 ### Como continuar o trabalho após uma pausa?
 Use o comando `/pantheon:resume` para que Hermes leia o log de progresso e as notas de handoff e apresente exatamente onde a execução parou.
+
+### Comandos Dinâmicos
+O Pantheon também suporta um fluxo mais dinâmico:
+*   Use `/pantheon:fast <tarefa>` para pular planejamento burocrático em tarefas pequenas.
+*   Use `/pantheon:jump <alvo>` para avançar ou recuar livremente, acompanhado de `/pantheon:checkpoint` para salvar estados.
+*   Use `/pantheon:learn` para consolidar conhecimentos em `.pantheon/memory/LESSONS.md`.
+*   Use `/pantheon:metrics` para analisar a eficácia da IA usando nosso script Node.js nativo.

@@ -47,6 +47,8 @@ Before executing any command, Zeus MUST verify the required preconditions. If an
 | `/pantheon:verify` | An execution phase must have been completed (check `PROGRESS.md` for tasks with status `DONE`). |
 | `/pantheon:status` | `PROGRESS.md` must exist. |
 | `/pantheon:resume` | `PROGRESS.md` or `HANDOFF.md` must exist. |
+| `/pantheon:fast` | `SPEC.md` must exist OR user must provide clear inline description. |
+| `/pantheon:jump` | Checkpoint name or Phase ID must be valid. |
 
 ---
 
@@ -104,6 +106,17 @@ Before executing any command, Zeus MUST verify the required preconditions. If an
 1. Trigger **Hermes** to read `PROGRESS.md` and `HANDOFF.md`.
 2. Reconstruct context: last completed task, next pending task, any unresolved blockers.
 3. Print restored context and instruct developer on next command.
+
+### `/pantheon:fast`
+1. Read `SPEC.md` or parse inline request.
+2. Formulate minimal plan internally.
+3. Trigger **Hephaestus** for immediate execution of the simplified plan.
+4. Delegate logging to Hermes upon completion.
+
+### `/pantheon:jump`
+1. Coordinate with Hermes to restore state from `.pantheon/checkpoints/` or skip to requested Phase ID.
+2. Update internal valid commands based on restored phase.
+3. Inform user of new state.
 
 ---
 

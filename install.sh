@@ -40,6 +40,10 @@ if [ -d "$CODEX_DIR" ]; then
     INSTALLED_ANY=true
 fi
 
+# Ensure scripts directory exists and copy metrics script
+mkdir -p "$HOME/.pantheon/scripts"
+cp -R scripts/* "$HOME/.pantheon/scripts/" 2>/dev/null || true
+
 if [ "$INSTALLED_ANY" = false ]; then
     echo "Warning: Neither Claude Code nor Codex directories were detected."
     echo "Creating local config layout in user home for reference..."
@@ -75,6 +79,11 @@ check "$CLAUDE_COMMANDS/pantheon/execute.md"   "/pantheon:execute"
 check "$CLAUDE_COMMANDS/pantheon/verify.md"    "/pantheon:verify"
 check "$CLAUDE_COMMANDS/pantheon/status.md"    "/pantheon:status"
 check "$CLAUDE_COMMANDS/pantheon/resume.md"    "/pantheon:resume"
+check "$CLAUDE_COMMANDS/pantheon/fast.md"      "/pantheon:fast"
+check "$CLAUDE_COMMANDS/pantheon/jump.md"      "/pantheon:jump"
+check "$CLAUDE_COMMANDS/pantheon/checkpoint.md" "/pantheon:checkpoint"
+check "$CLAUDE_COMMANDS/pantheon/learn.md"     "/pantheon:learn"
+check "$CLAUDE_COMMANDS/pantheon/metrics.md"   "/pantheon:metrics"
 check "$CLAUDE_COMMANDS/spawn/zeus.md"         "/spawn:zeus"
 check "$CLAUDE_COMMANDS/spawn/athena.md"       "/spawn:athena"
 check "$CLAUDE_COMMANDS/spawn/hephaestus.md"   "/spawn:hephaestus"

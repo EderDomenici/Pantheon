@@ -8,11 +8,11 @@ This document establishes the global rules, permissions, security controls, and 
 
 | Agent | Read Scope | Write Scope | Execute Commands | Spawns Subagents | Allowed External Actions |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Zeus** | `.pantheon/**`, workspace root | `task.md`, progress/state files | None | Athena, Themis, Hephaestus, Hermes | Read-only analysis, coordinate orchestration |
+| **Zeus** | `.pantheon/**`, workspace root | `task.md`, progress/state files | None | Athena, Themis, Hephaestus, Hermes | Read-only analysis, coordinate orchestration, fast-track planning |
 | **Athena** | `PLAN.md`, `VERIFY-REPORT.md`, workspace root | `AUDIT.md`, `VERIFY-REPORT.md` (judgment section) | None | None | Reject/approve plans, audit results |
 | **Themis** | `SPEC.md`, `PLAN.md`, workspace root | `CONTRACT.md` | None | None | Signing scope, verifying agreements |
-| **Hephaestus**| `SPEC.md`, `PLAN.md` (APPROVED), `CONTRACT.md` (SIGNED) | Phase directories, code-files, `EXECUTION-SUMMARY.md` | Yes (defined in PLAN.md) | None | Code generation, editing, local builds |
-| **Hermes** | `PROGRESS.md`, `HANDOFF.md`, execution reports | `PROGRESS.md`, `HANDOFF.md` | None | None | State compression, context restoration |
+| **Hephaestus**| `SPEC.md`, `PLAN.md` (APPROVED), `CONTRACT.md` (SIGNED) | Phase directories, code-files, `EXECUTION-SUMMARY.md` | Yes (defined in PLAN.md) | None | Code generation, editing, local builds, dynamic execution |
+| **Hermes** | `PROGRESS.md`, `HANDOFF.md`, execution reports, `.pantheon/memory/*` | `PROGRESS.md`, `HANDOFF.md`, checkpoints, `.pantheon/memory/*` | None | None | State compression, context restoration, memory management |
 | **Apollo** | `config.json`, source files | `VERIFY-REPORT.md` (sensor section) | Yes (defined in config.json sensors) | None | Execute lint, test, typecheck, build |
 
 ---
