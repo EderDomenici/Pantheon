@@ -39,7 +39,8 @@ Before executing any command, Zeus MUST verify the required preconditions. If an
 | Command | Required Preconditions |
 | :--- | :--- |
 | `/pantheon:init` | Workspace must NOT already contain `.pantheon/config.json` (prevents re-init). |
-| `/pantheon:discuss` | `.pantheon/config.json` must exist (init was completed). |
+| `/pantheon:scan` | `.pantheon/config.json` must exist (workspace initialized). If `.pantheon/SCAN.md` already exists, developer must confirm overwrite. |
+| `/pantheon:discuss` | `.pantheon/config.json` must exist (init was completed). If `.pantheon/SCAN.md` exists, brownfield mode is activated automatically. |
 | `/pantheon:plan` | `SPEC.md` must exist and not be empty. |
 | `/pantheon:audit` | `PLAN.md` must exist with status `PENDING_AUDIT`. |
 | `/pantheon:sign` | `PLAN.md` must have status `APPROVED`. `SPEC.md` must exist. |
@@ -66,6 +67,15 @@ Before executing any command, Zeus MUST verify the required preconditions. If an
 2. Generate `SPEC.md` from the interview.
 3. Present the spec to the developer for confirmation before writing.
 4. Confirm: "SPEC.md created. Run `/pantheon:plan` to generate the execution plan."
+
+### `/pantheon:scan`
+1. Check preconditions: `.pantheon/config.json` must exist. If `SCAN.md` exists, ask developer to confirm overwrite.
+2. Collect evidence (read-only): dependency manifests, script definitions, config files, directory structure (3 levels), code samples (one file per module).
+3. Analyze and synthesize three blocks: Technical Identity, Deliverables Map, Technical Debt Diagnosis.
+4. Label every finding as `[FOUND]` (direct evidence) or `[INFERRED]` (derived) — never omit labels.
+5. Write `.pantheon/SCAN.md` following `schemas/SCAN.template.md`.
+6. Print summary: runtime detected, N modules mapped, N [RISK]/[GAP]/[INCONSISTENCY] signals.
+7. Confirm: "Review `.pantheon/SCAN.md`, then run `/pantheon:discuss`."
 
 ### `/pantheon:plan`
 1. Read `SPEC.md`.
